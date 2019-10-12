@@ -1,0 +1,13 @@
+{
+    "go.inferGopath": false,
+    "editor.autoClosingOvertype": "always",
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "go.autocompleteUnimportedPackages": true,
+    "go.coverOnSingleTest": true,
+    "go.coverOnSave": true,
+    "editor.formatOnSave": true,
+    "go.gocodeAutoBuild": true,
+    "go.testOnSave": true,
+    "editor.formatOnPaste": false,
+    "go.formatTool": "goimports"
+}
