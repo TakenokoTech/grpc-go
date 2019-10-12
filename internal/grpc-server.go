@@ -25,13 +25,13 @@ func (s *SampleService) GetText(ctx context.Context, in *pb.TextRequest) (*pb.Te
 }
 
 // StartServer :
-func StartServer() {
+func StartServer() (err error) {
 	log.Println("StartServer")
 	flag.Parse()
 
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		return
 	}
 
 	grpcServer := grpc.NewServer()
@@ -40,4 +40,6 @@ func StartServer() {
 	if flag.Lookup("test.v") == nil {
 		grpcServer.Serve(lis)
 	}
+
+	return
 }
