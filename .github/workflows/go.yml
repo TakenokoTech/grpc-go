@@ -26,6 +26,7 @@ jobs:
 
     - name: Test
       run: |
+        mkdir report
         go test ./...
         go test -race -coverprofile="report/cover.txt" -covermode=atomic ./...
 
