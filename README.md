@@ -1,5 +1,8 @@
 # grpc-go
 
+[![Node+CI](https://github.com/TakenokoTech/grpc-go/workflows/Go/badge.svg)](https://github.com/TakenokoTech/grpc-go/actions)
+[![codecov](https://codecov.io/gh/TakenokoTech/grpc-go/branch/master/graph/badge.svg)](https://codecov.io/gh/TakenokoTech/grpc-go)
+
 ```
 # Run
 go run bin/grpc-go.go
