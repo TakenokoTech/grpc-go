@@ -15,3 +15,7 @@ func TestGetText(t *testing.T) {
 		t.Errorf("error")
 	}
 }
+
+func TestStartServer(t *testing.T) {
+	StartServer()
+}

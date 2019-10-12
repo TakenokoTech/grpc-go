@@ -31,3 +31,9 @@ func TestErrorStartClient(t *testing.T) {
 	client.sampleDomain = &mockSampleDomainClient{cc: nil}
 	client.GetText("")
 }
+
+func TestConnect(t *testing.T) {
+	client := Client{}
+	client.Connect()
+	client.Disconnect()
+}

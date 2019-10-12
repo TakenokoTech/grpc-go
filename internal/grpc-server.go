@@ -37,5 +37,7 @@ func StartServer() {
 	grpcServer := grpc.NewServer()
 	pb.RegisterSampleDomainServer(grpcServer, &SampleService{})
 
-	grpcServer.Serve(lis)
+	if flag.Lookup("test.v") == nil {
+		grpcServer.Serve(lis)
+	}
 }

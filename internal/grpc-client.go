@@ -21,15 +21,13 @@ type Client struct {
 }
 
 // Connect :
-func (client *Client) Connect() {
-	var err error
-
+func (client *Client) Connect() (err error) {
 	client.conn, err = grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		return
 	}
-
 	client.sampleDomain = pb.NewSampleDomainClient(client.conn)
+	return
 }
 
 // Disconnect :
@@ -38,16 +36,15 @@ func (client *Client) Disconnect() {
 }
 
 // GetText :
-func (client *Client) GetText(text string) error {
+func (client *Client) GetText(text string) (err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
 	r, err := client.sampleDomain.GetText(ctx, &pb.TextRequest{Text: text})
 	if err != nil {
-		// log.Fatalf("could not greet: %v", err)
-		return err
+		return
 	}
 
 	log.Printf("Reponse: %s", r.GetText())
-	return nil
+	return
 }
