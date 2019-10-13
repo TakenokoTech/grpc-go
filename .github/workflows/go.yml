@@ -47,8 +47,8 @@ jobs:
     - name: Build (macOS)
       if: matrix.os == 'macOS-latest'
       run: |
-        GOOS=darwin GOARCH=amd64 go build -o grpc-go_darwin_amd64 ./bin/grpc-go/main.go 
-        GOOS=darwin GOARCH=amd64 go build -o grpc-go-client_darwin_amd64 ./bin/grpc-go-client/main.go
+        GOOS=darwin GOARCH=amd64 go build -o grpc-go_darwin_amd64.bin ./bin/grpc-go/main.go 
+        GOOS=darwin GOARCH=amd64 go build -o grpc-go-client_darwin_amd64.bin ./bin/grpc-go-client/main.go
     - if: matrix.os == 'macOS-latest'
       name: Release (macOS)
       uses: nokotech/actions/release@release
@@ -57,7 +57,7 @@ jobs:
         owner: TakenokoTech
         repo: grpc-go
         dir: ./
-        file: grpc-go_darwin_amd64
+        file: grpc-go_darwin_amd64.bin
         content-type: application/octet-stream        
     - name: Build (Windows)
       if: matrix.os == 'windows-latest'
@@ -79,8 +79,8 @@ jobs:
     - name: Build (Linux)
       if: matrix.os == 'ubuntu-latest'
       run: |
-        GOOS=linux GOARCH=amd64 go build -o grpc-go_linux_amd64 ./bin/grpc-go/main.go 
-        GOOS=linux GOARCH=amd64 go build -o grpc-go-client_linux_amd64 ./bin/grpc-go-client/main.go
+        GOOS=linux GOARCH=amd64 go build -o grpc-go_linux_amd64.bin ./bin/grpc-go/main.go 
+        GOOS=linux GOARCH=amd64 go build -o grpc-go-client_linux_amd64.bin ./bin/grpc-go-client/main.go
     - if: matrix.os == 'ubuntu-latest'
       name: Release (Linux)
       uses: nokotech/actions/release@release
@@ -89,6 +89,6 @@ jobs:
         owner: TakenokoTech
         repo: grpc-go
         dir: ./
-        file: grpc-go_linux_amd64
+        file: grpc-go_linux_amd64.bin
         content-type: application/octet-stream
     
