@@ -15,6 +15,9 @@ func main() {
 	fmt.Println("TakenokoTech/grpc-go-client")
 	fmt.Println("=============================")
 	client.Connect()
-	client.GetText("__(><)__")
+	client.SampleDomain.GetText("(((^-^)))")
+	client.SampleDomain.GetText("__(>__<)__")
+	client.SampleDomain.GetText("o(*^▽^*)o")
+	client.SampleDomain.GetText("＼(^o^)／")
 	client.Disconnect()
 }

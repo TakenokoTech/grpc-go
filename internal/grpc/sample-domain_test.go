@@ -7,8 +7,8 @@ import (
 	pb "github.com/TakenokoTech/grpc-go/api/proto"
 )
 
-func TestSampleService_GetText(t *testing.T) {
-	service := &SampleService{}
+func TestSampleDomain_GetText(t *testing.T) {
+	service := &SampleDomain{}
 	r, err := service.GetText(context.Background(), &pb.TextRequest{Text: "test"})
 
 	if err != nil || r.Text == "" {
