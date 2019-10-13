@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v1
     - name: Get dependencies
       run: |
-        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+        go get -u github.com/golang/dep/cmd/dep
         dep ensure
     - name: Test
       run: |
@@ -44,7 +44,7 @@ jobs:
       uses: actions/checkout@v1
     - name: Get dependencies
       run: |
-        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+        go get -u github.com/golang/dep/cmd/dep
         dep ensure
     - name: Build (macOS)
       if: matrix.os == 'macOS-latest'
