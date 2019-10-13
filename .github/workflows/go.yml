@@ -28,15 +28,17 @@ jobs:
       run: |
         mkdir report
         go test ./...
-        go test -race -coverprofile="report/cover.txt" -covermode=atomic ./...
+        go test -race -coverprofile="report/cover.out" -covermode=atomic ./...
 
     - name: Build
-      run: go build bin/grpc-go.go
+      run: |
+        go build -o grpc-go .\bin\grpc-go\main.go 
+        go build -o grpc-go-client .\bin\grpc-go-client\main.go     
     
     - name: codecov
       uses: codecov/codecov-action@v1.0.2
       with:
         token: ${{secrets.CODECOV_TOKEN}}
-        file: ./report/cover.txt
+        file: ./report/cover.out
         flags: unittests
         name: codecov-umbrella    
