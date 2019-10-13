@@ -1,4 +1,4 @@
-package internal
+package grpc
 
 import (
 	"context"
@@ -21,19 +21,19 @@ func (c *mockSampleDomainClient) GetText(ctx context.Context, in *pb.TextRequest
 }
 
 func TestSuccessStartClient(t *testing.T) {
-	client := Client{}
+	client := GClient{}
 	client.sampleDomain = &mockSampleDomainClient{cc: nil}
 	client.GetText("_(--)_ ")
 }
 
 func TestErrorStartClient(t *testing.T) {
-	client := Client{}
+	client := GClient{}
 	client.sampleDomain = &mockSampleDomainClient{cc: nil}
 	client.GetText("")
 }
 
 func TestConnect(t *testing.T) {
-	client := Client{}
+	client := GClient{}
 	client.Connect()
 	client.Disconnect()
 }

@@ -1,4 +1,4 @@
-package internal
+package grpc
 
 import (
 	"context"
@@ -14,14 +14,14 @@ const (
 	defaultName = "world"
 )
 
-// Client :
-type Client struct {
+// GClient :
+type GClient struct {
 	conn         *grpc.ClientConn
 	sampleDomain pb.SampleDomainClient
 }
 
 // Connect :
-func (client *Client) Connect() (err error) {
+func (client *GClient) Connect() (err error) {
 	client.conn, err = grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		return
@@ -31,12 +31,12 @@ func (client *Client) Connect() (err error) {
 }
 
 // Disconnect :
-func (client *Client) Disconnect() {
+func (client *GClient) Disconnect() {
 	defer client.conn.Close()
 }
 
 // GetText :
-func (client *Client) GetText(text string) (err error) {
+func (client *GClient) GetText(text string) (err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
