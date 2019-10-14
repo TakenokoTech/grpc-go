@@ -2,6 +2,7 @@
 
 [![Node+CI](https://github.com/TakenokoTech/grpc-go/workflows/Go/badge.svg)](https://github.com/TakenokoTech/grpc-go/actions)
 [![codecov](https://codecov.io/gh/TakenokoTech/grpc-go/branch/master/graph/badge.svg)](https://codecov.io/gh/TakenokoTech/grpc-go)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/TakenokoTech/grpc-go/blob/master/LICENSE)
 
 ```
 # Run
